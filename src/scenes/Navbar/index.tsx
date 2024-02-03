@@ -84,25 +84,3 @@ export const Navbar = ({selectedPage, setSelectedPage, isTopOfPage}: Props) => {
     </nav>
   )
 }
-
-
-/*
-      {!isAboveMediumScreens && isMenuToggled && (
-        <motion.div 
-          className="fixed right-0 bottom-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl"
-          initial='hidden'
-          whileInView='visible'
-          transition={{duration: 0.4, type: 'spring'}}
-          variants={{
-            hidden: {
-              x: 200,
-              opacity: 0
-            },
-            visible: {
-              x: 0,
-              opacity: 1
-            }
-          }}
-        >
-
-        */

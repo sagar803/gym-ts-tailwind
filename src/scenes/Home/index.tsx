@@ -79,8 +79,8 @@ const Home = ({setSelectedPage}: Props) => {
         {/* IMAGE SECTION */}
         <motion.div 
           className="flex basis-3/5 justify-center md:z-10 md:ml-40 md:mt-16 md:justify-items-end"
-          initial={{x: 200, opacity: 0}}
-          whileInView={{x: 0 , opacity: 1, transition: {delay: 0.3, duration: 0.5, ease: 'backInOut'}}}
+          initial={{y: 200, opacity: 0}}
+          whileInView={{y: 0 , opacity: 1, transition: {delay: 0.3, duration: 0.5, ease: 'backInOut'}}}
         >
           <img alt="home-pageGraphic" src={HomePageGraphic} />
         </motion.div>
