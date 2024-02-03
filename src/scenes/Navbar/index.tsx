@@ -14,16 +14,15 @@ type Props = {
 }
 
 export const Navbar = ({selectedPage, setSelectedPage, isTopOfPage}: Props) => {
-  console.log(isTopOfPage);
   const flexBetween = "flex items-center justify-between"
   const isAboveMediumScreens = useMediaQuery("(min-width: 1080px)")
-  const navbarBorderBottom = isAboveMediumScreens ? "" : "border-b-[1px] border-b-gray-500 drop-shadow"
+  const navbarBorderBottom = isTopOfPage ? "" : "border-b-gray-500"
   const [isMenuToggled, setIsMenuToggled] = useState(false);
   const tabs = ["Home","Benefits", "Our Classes", "Contact Us"]
   
   return (
     <nav className="fixed top-0 z-30 w-full">
-      <div className={`${flexBetween} ${navbarBorderBottom} backdrop-blur-lg w-full py-6`}>
+      <div className={`${flexBetween} transition ease-in duration-500 border-b-[1px] ${navbarBorderBottom} backdrop-blur-lg w-full py-6 drop-shadow`}>
         <div className={`${flexBetween} mx-auto w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
             {/* LEFT SIDE */}

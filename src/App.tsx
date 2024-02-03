@@ -3,8 +3,9 @@ import './App.css'
 import { Navbar } from './scenes/Navbar'
 import Home from './scenes/Home'
 import Benefits from './scenes/Benifits'
-
-
+import OurClasses from './scenes/OurClasses'
+import ContactUs from './scenes/ContactUs'
+import Footer from './scenes/Footer'
 
 enum SelectedPage {
   Home = "home",
@@ -33,6 +34,9 @@ function App() {
         <Navbar isTopOfPage={isTopOfPage} selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
         <Home setSelectedPage={setSelectedPage}/>
         <Benefits setSelectedPage={setSelectedPage}/>
+        <OurClasses setSelectedPage={setSelectedPage}/>
+        <ContactUs setSelectedPage={setSelectedPage}/>
+        <Footer />
       </div>
   )
 }

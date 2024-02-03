@@ -7,7 +7,7 @@ import SponsorRedBull from '../../assets/SponsorRedBull.png'
 import ActionButton from '@/shared/ActionButton'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import useMediaQuery from '@/hooks/useMediaQuery'
-import { motion } from 'framer-motion'
+import { easeIn, motion } from 'framer-motion'
 
 type Props = {
     setSelectedPage: (value: SelectedPage) => void
@@ -32,7 +32,7 @@ const Home = ({setSelectedPage}: Props) => {
                 className="md:-mt-20"
                 initial='hidden'
                 whileInView='visible'
-                viewport={{once: true, amount: 0.5}}
+                viewport={{ amount: 0.5}}
                 transition={{duration: 0.5}}
                 variants={{
                   hidden: { opacity: 0, x: -100 },
@@ -56,7 +56,7 @@ const Home = ({setSelectedPage}: Props) => {
                 className="mt-8 flex items-center gap-8"
                 initial='hidden'
                 whileInView='visible'
-                viewport={{once: true, amount: 0.5}}
+                viewport={{amount: 0.5}}
                 transition={{duration: 0.5, delay: 0.2}}
                 variants={{
                   hidden: { opacity: 0, x: -100 },
@@ -77,9 +77,13 @@ const Home = ({setSelectedPage}: Props) => {
         </div>
 
         {/* IMAGE SECTION */}
-        <div className="flex basis-3/5 justify-center md:z-10 md:ml-40 md:mt-16 md:justify-items-end">
+        <motion.div 
+          className="flex basis-3/5 justify-center md:z-10 md:ml-40 md:mt-16 md:justify-items-end"
+          initial={{x: 200, opacity: 0}}
+          whileInView={{x: 0 , opacity: 1, transition: {delay: 0.3, duration: 0.5, ease: 'backInOut'}}}
+        >
           <img alt="home-pageGraphic" src={HomePageGraphic} />
-        </div>
+        </motion.div>
       </motion.div>
           
 
