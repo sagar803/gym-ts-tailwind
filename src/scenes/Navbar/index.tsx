@@ -22,8 +22,8 @@ export const Navbar = ({selectedPage, setSelectedPage, isTopOfPage}: Props) => {
   const tabs = ["Home","Benefits", "Our Classes", "Contact Us"]
   
   return (
-    <nav>
-      <div className={`${flexBetween} ${navbarBorderBottom} backdrop-blur-lg fixed top-0 z-30 w-full py-6`}>
+    <nav className="fixed top-0 z-30">
+      <div className={`${flexBetween} ${navbarBorderBottom} backdrop-blur-lg w-full py-6`}>
         <div className={`${flexBetween} mx-auto w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
             {/* LEFT SIDE */}
