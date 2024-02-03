@@ -5,6 +5,7 @@ import Link from "./Link"
 import { SelectedPage } from "@/shared/types"
 import useMediaQuery from "@/hooks/useMediaQuery"
 import ActionButton from "@/shared/ActionButton"
+import { motion } from "framer-motion"
 
 type Props = {
   selectedPage: SelectedPage;
@@ -13,6 +14,7 @@ type Props = {
 }
 
 export const Navbar = ({selectedPage, setSelectedPage, isTopOfPage}: Props) => {
+  console.log(isTopOfPage);
   const flexBetween = "flex items-center justify-between"
   const isAboveMediumScreens = useMediaQuery("(min-width: 1080px)")
   const navbarBorderBottom = isAboveMediumScreens ? "" : "border-b-[1px] border-b-gray-500 drop-shadow"
@@ -55,23 +57,53 @@ export const Navbar = ({selectedPage, setSelectedPage, isTopOfPage}: Props) => {
       </div>
       
       {/* MOBILE MENU MODAL */}
-      {!isAboveMediumScreens && isMenuToggled && (
-        <div className="fixed right-0 bottom-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl">
+      {!isAboveMediumScreens  && (
+        <motion.div 
+          className={`fixed transition ease-in-out duration-300  ${isMenuToggled ? 'translate-x-0' : 'translate-x-[100%]'} right-0 bottom-0 z-40 h-full w-full bg-primary-100 drop-shadow-xl`}
+        >
           {/* CLOSE ICON */}
-          <div className="flex justify-end p-9">
+          <div className="flex justify-between p-9">
+            <img alt="logo" src={Logo}/>
             <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
               <XMarkIcon className="h-6 w-6 text-gray-400" />
             </button>
           </div>
 
           {/* MENU ITEMS */}
-          <div className="ml-[33%] flex flex-col gap-10 text-2xl">
-          {tabs.map((s, index) => (
-              <Link key={index} page={s} selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
-          ))}
+          <div className="w-full flex items-center justify-center h-[70%] text-center">
+            <div className="flex flex-col gap-10 text-2xl">
+              {tabs.map((s, index) => (
+                <div onClick={() => setIsMenuToggled(!isMenuToggled)}>
+                  <Link key={index} page={s} selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+                </div>
+              ))}
+
+            </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </nav>
   )
 }
+
+
+/*
+      {!isAboveMediumScreens && isMenuToggled && (
+        <motion.div 
+          className="fixed right-0 bottom-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl"
+          initial='hidden'
+          whileInView='visible'
+          transition={{duration: 0.4, type: 'spring'}}
+          variants={{
+            hidden: {
+              x: 200,
+              opacity: 0
+            },
+            visible: {
+              x: 0,
+              opacity: 1
+            }
+          }}
+        >
+
+        */

@@ -10,10 +10,6 @@ type Props = {
 function Link({page, selectedPage, setSelectedPage}: Props) {
   const lowerCasePage = page.toLowerCase().replace(/ /g, "") as SelectedPage
 
-  console.log(selectedPage)
-  console.log(lowerCasePage)
-  console.log(selectedPage === lowerCasePage)
-
   return (
     <AnchorLink
         className={`${selectedPage == lowerCasePage ? "text-primary-500": ""} transition duration-500 hover:text-primary-300`}
