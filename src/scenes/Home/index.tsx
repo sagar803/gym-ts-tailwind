@@ -7,6 +7,7 @@ import SponsorRedBull from '../../assets/SponsorRedBull.png'
 import ActionButton from '@/shared/ActionButton'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import useMediaQuery from '@/hooks/useMediaQuery'
+import { motion } from 'framer-motion'
 
 type Props = {
     setSelectedPage: (value: SelectedPage) => void
