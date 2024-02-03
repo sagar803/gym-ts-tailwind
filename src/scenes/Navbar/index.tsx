@@ -8,18 +8,20 @@ import ActionButton from "@/shared/ActionButton"
 
 type Props = {
   selectedPage: SelectedPage;
-  setSelectedPage: (value: SelectedPage) => void
+  setSelectedPage: (value: SelectedPage) => void;
+  isTopOfPage: Boolean
 }
 
-export const Navbar = ({selectedPage, setSelectedPage}: Props) => {
+export const Navbar = ({selectedPage, setSelectedPage, isTopOfPage}: Props) => {
   const flexBetween = "flex items-center justify-between"
   const isAboveMediumScreens = useMediaQuery("(min-width: 1080px)")
+  const navbarBorderBottom = isAboveMediumScreens ? "" : "border-b-[1px] border-b-gray-500 drop-shadow"
   const [isMenuToggled, setIsMenuToggled] = useState(false);
-  const tabs = ["Home","Benifits", "Our Class", "Contact Us"]
+  const tabs = ["Home","Benefits", "Our Classes", "Contact Us"]
   
   return (
     <nav>
-      <div className={`${flexBetween} fixed top-0 z-30 w-full py-6`}>
+      <div className={`${flexBetween} ${navbarBorderBottom} backdrop-blur-lg fixed top-0 z-30 w-full py-6`}>
         <div className={`${flexBetween} mx-auto w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
             {/* LEFT SIDE */}
@@ -46,7 +48,6 @@ export const Navbar = ({selectedPage, setSelectedPage}: Props) => {
                 onClick={() => setIsMenuToggled(!isMenuToggled)}
               >
                 <Bars3Icon className="h-6 w-6 text-white"/>
-
               </button>
             )}
           </div>
@@ -57,7 +58,7 @@ export const Navbar = ({selectedPage, setSelectedPage}: Props) => {
       {!isAboveMediumScreens && isMenuToggled && (
         <div className="fixed right-0 bottom-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl">
           {/* CLOSE ICON */}
-          <div className="flex justify-end p-12">
+          <div className="flex justify-end p-9">
             <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
               <XMarkIcon className="h-6 w-6 text-gray-400" />
             </button>
