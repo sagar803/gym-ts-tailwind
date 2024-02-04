@@ -61,7 +61,7 @@ export const Navbar = ({selectedPage, setSelectedPage, isTopOfPage}: Props) => {
           className={`fixed transition ease-in-out duration-300  ${isMenuToggled ? 'translate-x-0' : 'translate-x-[100%]'} right-0 bottom-0 z-40 h-full w-full bg-primary-100 drop-shadow-xl`}
         >
           {/* CLOSE ICON */}
-          <div className="flex justify-between p-9">
+          <div className="flex justify-between px-11 py-9">
             <img alt="logo" src={Logo}/>
             <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
               <XMarkIcon className="h-6 w-6 text-gray-400" />
